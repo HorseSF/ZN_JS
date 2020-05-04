@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {width: 100px;height: 100px;background: green;position: absolute;}
+        #div2 {width:400px;height: 400px;background: chocolate;position: relative;}
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv = document.getElementById('div1');
+            var oDiv2 = document.getElementById('div2');
+            var disX = 0;
+            var disY = 0;
+            oDiv.onmousedown = function(ev){
+                var oEvent = ev||event;
+                disX = oEvent.clientX - oDiv.offsetLeft;
+                disY = oEvent.clientY - oDiv.offsetTop;
+
+                if(oDiv.setCapture){
+
+                    //IE
+                    document.onmousemove = function(ev){
+                        var oEvent = ev||event;
+                        var l = oEvent.clientX - disX;
+                        var t = oEvent.clientY - disY;
+
+                        //磁性吸附
+                        if(l < 20){
+                            l = 0;
+                        }else if(l>oDiv2.offsetWidth - oDiv.offsetWidth){
+                            l = oDiv2.offsetWidth - oDiv.offsetWidth;
+                        }
+                        if(t < 20){
+                            t = 0;
+                        }else if(t>oDiv2.offsetHeight - oDiv.offsetHeight){
+                            t = oDiv2.offsetHeight - oDiv.offsetHeight;
+                        }
+
+                        oDiv.style.left = l +'px';
+                        oDiv.style.top =  t+ 'px';
+                    }
+
+                    document.onmouseup = function(){
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+
+                        oDiv.releaseCapture();
+                    }
+                    oDiv.setCapture();
+                    return false;
+                }
+                else{
+
+                    //Chrome, FF
+                    document.onmousemove = function(ev){
+                        var oEvent = ev||event;
+                        var l = oEvent.clientX - disX;
+                        var t = oEvent.clientY - disY;
+
+                        //磁性吸附
+                        if(l < 20){
+                            l = 0;
+                        }else if(l>oDiv2.offsetWidth - oDiv.offsetWidth){
+                            l = oDiv2.offsetWidth - oDiv.offsetWidth;
+                        }
+                        if(t < 20){
+                            t = 0;
+                        }else if(t>oDiv2.offsetHeight - oDiv.offsetHeight){
+                            t = oDiv2.offsetHeight - oDiv.offsetHeight;
+                        }
+
+                        oDiv.style.left = l +'px';
+                        oDiv.style.top =  t+ 'px';
+                    }
+
+                    document.onmouseup = function(){
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    }
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div2">
+        <div id="div1"></div>
+     </div>
+</body>
+</html>

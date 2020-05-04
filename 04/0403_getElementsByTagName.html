@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    div {width: 200px; height: 200px; float: left; border: 1px solid black;}
+    </style>
+    <script>
+        window.onload=function(){
+            var aDiv = document.getElementsByTagName('div');
+
+            // var i = 0;
+            // while(i<5){
+            //      aDiv[i].style.background = 'red';
+            //      i++;
+            // }
+
+            for(var i=0;i<aDiv.length;i++){
+                aDiv[i].style.background = 'red';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>

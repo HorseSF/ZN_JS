@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script>
+    var arr = [1,2,3,4,5,6];
+    alert(arr.length);
+    
+    arr.push('10');
+    alert(arr);
+
+    arr.pop();
+    alert(arr);
+
+    arr.unshift('0');
+    alert(arr);
+
+    arr.shift();
+    alert(arr);
+
+    arr.splice(2,3);
+    alert(arr);
+
+    arr.splice(2,0,'a','b','c');
+    alert(arr);
+
+    arr.splice(2,2,'x','y');
+    alert(arr);
+
+    var arr1 = ['a','b','c'];
+    var arr2 = ['x','y','z'];
+    
+    /**
+     * 连接数组
+     */
+    alert(arr1.concat(arr2));
+
+    /**
+     * 加入连接符
+     */
+    alert(arr.join('--p'));
+    alert(arr.length);
+
+    /**
+     * 排序
+     */
+    var arr3 = ['float','width','zoom','left','alpha'];
+    arr3.sort();
+    alert(arr3);
+
+    var arr4 = ['30','20','100','10'];
+    alert(arr4.sort());
+
+    arr4.sort(function (n1,n2){
+        return n1 - n2;
+        /*
+        if(n1<n2)
+        {
+            return -1;
+        }else if(n1>n2){
+            return 1;
+        }else{
+            return 0;
+        }
+        */
+    })
+    alert(arr4);
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

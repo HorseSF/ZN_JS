@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #div1 {width: 200px;height: 200px;background: black;}
+    </style>
+    <script>
+        function changeStyle(styleName,value){
+            var oDiv = document.getElementById('div1');
+            oDiv.style[styleName] = value;
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="changeWidth" onclick="changeStyle('width','300px');">
+    <input type="button" value="changeHeight" onclick="changeStyle('height','300px');">
+    <input type="button" value="changeBackground" onclick="changeStyle('background','red');">
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    //构造函数
+    function CreatePerson(name,qq){
+        
+        //属性
+        this.name = name;
+        this.qq = qq;
+    }
+
+    //原型
+    CreatePerson.prototype.showName = function(){
+        
+        //方法
+        alert('我的名字叫:' + this.name);
+    }
+
+    CreatePerson.prototype.showQQ = function(){
+        alert('我的QQ:' + this.qq);
+    }
+
+    var obj1 = new CreatePerson('blue','123');
+    var obj2 = new CreatePerson('yellow','456');
+
+    obj1.showName();
+    obj1.showQQ();
+
+    obj2.showName();
+    obj2.showQQ();
+
+    alert(obj1.showName == obj2.showName);
+</script>
+<body>
+    
+</body>
+</html>

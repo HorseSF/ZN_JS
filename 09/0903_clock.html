@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<script>
+function toDou(n){
+    if(n<10){
+        return '0' + n;
+    }else{
+        return ''+n;
+    }
+}
+
+window.onload = function(){
+    var aImg = document.getElementsByTagName('img');
+    var arrWeek = ['seven','one','two','three','four','five','six'];
+    function tick(){
+        var oDate = new Date();
+        
+        var str = toDou(oDate.getFullYear()) + toDou(oDate.getMonth()+1) + toDou(oDate.getDate()) + toDou(oDate.getHours()) + toDou(oDate.getMinutes()) + toDou(oDate.getSeconds());
+
+        for (var i=0;i<aImg.length-1;i++){
+            aImg[i].src = 'images/' + str.charAt(i) + '.png';
+        }
+
+        aImg[aImg.length-1].src = 'images/' + arrWeek[oDate.getDay()] + '.png';
+    }
+    setInterval(tick,1000);
+    tick();
+}
+</script>
+
+</head>
+<body style="background: black; color: white; font-size: 50px;margin: 350px;">
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    年
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    月
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    日
+    <br>
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    :
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    :
+    <img src="images/0.png" alt="">
+    <img src="images/0.png" alt="">
+    星期
+    <img src="images/one.png" alt="">
+</body>
+</html>

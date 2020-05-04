@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function createPerson(name,qq){
+
+        //系统自动生成对象
+        //var this = new object();
+
+        //加工
+        this.name = name;
+        this.qq = qq;
+
+        this.showName = function(){
+            alert('我的名字叫:' + this.name);
+        }
+
+        this.showQQ = function(){
+            alert('我的QQ:' + this.qq);
+        }
+
+        //系统自动返回this
+        //return this;
+    }
+
+    var obj1 = new createPerson('blue','123');
+
+    obj1.showName();
+    obj1.showQQ();
+</script>
+<body>
+    
+</body>
+</html>

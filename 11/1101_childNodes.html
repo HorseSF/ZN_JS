@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload = function(){
+        var oUl = document.getElementById('ul1');
+        //IE6-8
+        alert(oUl.childNodes.length);
+
+        /**
+         * nodeType => 文本节点
+         * nodeType => 元素节点
+         */
+
+        for(var i=0;i<oUl.childNodes.length;i++){
+            if(oUl.childNodes[i].nodeType == 1){
+                oUl.childNodes[i].style.background = 'red';
+            }
+        }
+
+        alert(oUl.children.length);
+    }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    文本节点
+    <span>元素节点</span>
+</body>
+</html>

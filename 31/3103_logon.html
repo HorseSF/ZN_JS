@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       function setCookie(name, value, iDay){
+            var oDate = new Date();
+            oDate.setDate(oDate.getDate() + iDay);
+            document.cookie = name + '=' + value + ';expires=' + oDate;
+        }
+
+        function getCookie(name) {
+            var name = name + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        function removeCookie(name){
+            setCookie(name,1,-1);
+        }
+
+        window.onload = function(){
+            //removeCookie('password');
+            //removeCookie('user');
+            var oForm = document.getElementById('form1');
+            var oUser = document.getElementsByName('user');
+
+            oForm.onsubmit = function(){
+                setCookie('user',oUser.value,7);
+            }
+
+            oUser.value = getCookie('user');
+        }
+        
+    </script>
+</head>
+<body>
+    <form id="form1" action="https://www.zhinengshe.com/">
+        用户名:<input type="text" name="user"/><br>
+        密码:<input type="text" name="pass"/><br>
+        <input type="submit" name="登录"/>
+    </form>
+</body>
+</html>

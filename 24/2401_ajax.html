@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="2401_ajax.js"></script>
+    <script>
+        window.onload=function (){
+            var oBtn1 = document.getElementById('btn1');
+
+            oBtn1.onclick = function(){
+                ajax('2401_read.txt?t=' + new Date().getTime(), function (str){
+                    alert(str);
+                }, function (){
+                    alert('error');
+                })
+            };
+
+            var oBtn2 = document.getElementById('btn2');
+
+            oBtn2.onclick = function(){
+                ajax('2401_arr.txt?t=' + new Date().getTime(), function (str){
+                    var arr = eval(str);
+                    alert(arr[3]);
+                }, function (){
+                    alert('error');
+                })
+            };
+
+            var oBtn3 = document.getElementById('btn3');
+            var oUl = document.getElementById('ul1');
+
+            oBtn3.onclick = function(){
+                ajax('2401_json.txt?t=' + new Date().getTime(), function (str){
+                    var arr = eval(str);
+
+                    for(var i=0;i<arr.length;i++){
+                        var oLi = document.createElement('li');
+                        oLi.innerHTML = '用户名：<strong>' + arr[i].user + '</strong>密码：<span>' + arr[i].pass + '</span>';
+                        oUl.appendChild(oLi);
+                    }
+                }, function (){
+                    alert('error');
+                })
+            };
+        };
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="读取txt">
+    <input id="btn2" type="button" value="读取arr">
+    <input id="btn3" type="button" value="读取Json">
+    <ul id="ul1"></ul>
+</body>
+</html>

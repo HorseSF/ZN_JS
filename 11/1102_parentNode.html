@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    window.onload=function(){
+        var oA = document.getElementsByTagName('a');
+        for(var i=0;i<oA.length;i++){
+            oA[i].onclick=function(){
+                this.parentNode.style.display='none';
+            }
+        }
+    }
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li>11111111<a href="javaascript:;">unDisplay</a></li>
+        <li>22222222<a href="javaascript:;">unDisplay</a></li>
+        <li>33333333<a href="javaascript:;">unDisplay</a></li>
+        <li>44444444<a href="javaascript:;">unDisplay</a></li>
+        <li>55555555<a href="javaascript:;">unDisplay</a></li>
+        <li>66666666<a href="javaascript:;">unDisplay</a></li>
+        <li>77777777<a href="javaascript:;">unDisplay</a></li>
+        <li>88888888<a href="javaascript:;">unDisplay</a></li>
+    </ul>
+</body>
+</html>

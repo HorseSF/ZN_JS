@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function a(){
+        this.abc = 12;
+    }
+
+    a.prototype.show = function(){
+        alert(this.abc);
+    }
+
+    function b(){
+        a.call(this);
+    }
+
+    //发生引用
+    //b.prototype = a.prototype;
+
+    //只继承不引用
+    for(var i in a.prototype){
+        b.prototype[i] = a.prototype[i];
+    }
+    var obj = new b();
+
+    alert(obj.abc);
+    obj.show();
+</script>
+<body>
+    
+</body>
+</html>

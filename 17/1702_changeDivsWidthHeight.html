@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {width: 100px;height: 100px;background: blue;margin: 20px;float: left;border:5px solid black; font-Size: 10px;opacity: 0.3;}
+    </style>
+    <script>
+        window.onload = function(){
+            var oDiv1 = document.getElementById('div1');
+            oDiv1.onmouseover = function(){
+                startMove(this,'height',300);
+            }
+
+            oDiv1.onmouseout = function(){
+                startMove(this,'height',100);
+            }
+
+            var oDiv2 = document.getElementById('div2');
+            oDiv2.onmouseover = function(){
+                startMove(this,'width',300);
+            }
+
+            oDiv2.onmouseout = function(){
+                startMove(this,'width',100);
+            }
+
+            var oDiv3 = document.getElementById('div3');
+            oDiv3.onmouseover = function(){
+                startMove(this,'fontSize',30);
+            }
+
+            oDiv3.onmouseout = function(){
+                startMove(this,'fontSize',10);
+            }
+
+            var oDiv4 = document.getElementById('div4');
+            oDiv4.onmouseover = function(){
+                startMove(this,'borderWidth',30);
+            }
+
+            oDiv4.onmouseout = function(){
+                startMove(this,'borderWidth',5);
+            }
+
+            var oDiv5 = document.getElementById('div5');
+            oDiv5.onmouseover = function(){
+                startMove(this,'opacity',100);
+            }
+
+            oDiv5.onmouseout = function(){
+                startMove(this,'opacity',30);
+            }
+        }
+
+        function getStyle(obj,name){
+            if(obj.currentStyle){
+                return obj.currentStyle[name];
+            }else{
+                return getComputedStyle(obj,false)[name];
+            }
+        }
+
+        function startMove(obj,attr,iTarget){
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function(){
+                if(attr == "opacity"){
+                    var cur = Math.round(parseFloat(getStyle(obj,attr))*100);
+                }else{
+                    var cur = parseInt(getStyle(obj,attr));
+                }
+                var speed = (iTarget - cur)/6;
+                speed = speed>0?Math.ceil(speed):Math.floor(speed);
+
+                if(cur == iTarget){
+                    clearInterval(obj.timer);
+                }else{
+                    if(attr == "opacity"){
+                        obj.style[attr] = (cur + speed)/100;
+                        document.getElementById('txt1').value = obj.style[attr];
+                    }else{
+                        obj.style[attr] = cur + speed + 'px';
+                    }
+                }
+            },30)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">changeHeight</div>
+    <div id="div2">changeWidth</div>
+    <div id="div3">abcdefg</div>
+    <div id="div4">abcdefg</div>
+    <div id="div5"></div>
+    <input type="text" name="" id="txt1">
+</body>
+</html>

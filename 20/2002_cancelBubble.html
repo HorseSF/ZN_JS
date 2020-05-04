@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{width: 400px;height: 400px;display: none;background: green;}
+    </style>
+    <script>
+        window.onload = function(){
+            oBtn = document.getElementById('btn1');
+            oDiv = document.getElementById('div1');
+
+            oBtn.onclick = function(ev){
+                oDiv.style.display = 'block';
+                
+                var oEvent = ev||event;
+                oEvent.cancelBubble = true;
+            }
+
+            document.onclick = function(){
+                oDiv.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="按钮">
+    <div id="div1"></div>
+</body>
+</html>
